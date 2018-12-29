@@ -2,3 +2,8 @@
 
 Author: Erin Atkinson
 Language: Golang 1.11
+
+## Completed
+
+* Day1
+* Day2
