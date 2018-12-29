@@ -12,7 +12,7 @@ import (
 // Execute entrypoint into day1
 func Execute(filename string) {
 	fmt.Println("=== Day1 ===")
-	day1file, err := utils.ReadFile("files/day1.txt")
+	day1file, err := utils.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
