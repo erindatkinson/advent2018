@@ -55,3 +55,51 @@ func TestDay2_Checksum(t *testing.T) {
 		which appears exactly three times. Multiplying these
 		together produces a checksum of 4 * 3 = 12.
 */
+
+func TestDay2_CheckDifferenceCount(t *testing.T) {
+	assert := assert.New(t)
+	test := "abcde"
+	ids := []string{"fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"}
+	results := []int{5, 5, 5, 5, 2, 5}
+	for index := 0; index < len(ids); index++ {
+		result, err := checkDifferenceCount(test, ids[index])
+		assert.Nil(err)
+		assert.Equal(results[index], result)
+	}
+}
+
+func TestDay2_FilterCommon(t *testing.T) {
+	assert := assert.New(t)
+	test := "abcde"
+	id := "axcye"
+	result := filterCommon(test, id)
+	assert.Equal("ace", result)
+
+}
+
+func TestDay2_Part2(t *testing.T) {
+	assert := assert.New(t)
+	ids := []string{"abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"}
+	result, err := part2(ids)
+	assert.Nil(err)
+	assert.Equal("fgij", result)
+}
+
+/*
+abcde
+fghij
+klmno
+pqrst
+fguij
+axcye
+wvxyz
+
+The IDs abcde and axcye are close, but they differ by two
+characters (the second and fourth). However, the IDs fghij
+and fguij differ by exactly one character, the third
+(h and u). Those must be the correct boxes.
+
+What letters are common between the two correct box IDs?
+(In the example above, this is found by removing the
+	differing character from either ID, producing fgij.)
+*/
