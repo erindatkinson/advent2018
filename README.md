@@ -7,3 +7,4 @@ Language: Golang 1.11
 
 * Day1
 * Day2
+* Day3
